@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>API Testing</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        //Test Call
+        var ImageEffect = [];
+        var ImageDetails = [
+            { Name: 'Image1', Size: '100kb', Radius: '100', Effect: [ImageEffect.Effect = 'Effect1', ImageEffect.Effect = 'Effect2'] },
+            { Name: 'Image2', Size: '200kb', Radius: '200', Effect: [ImageEffect.Effect = 'Effect1'] },
+            { Name: 'Image3', Size: '300kb', Radius: '300', Effect: [ImageEffect.Effect = 'Effect1', ImageEffect.Effect = 'Effect2', ImageEffect.Effect = 'Effect3'] }
+        ];
+
+        $.ajax({
+            url: "http://localhost:62357/Image/CreateImages",
+            method: "POST",
+            data: JSON.stringify(ImageDetails),
+            dataType: 'json',
+            contentType: "application/json",
+            success: function (result, status, jqXHR) {
+                //Do something
+            },
+            error(jqXHR, textStatus, errorThrown) {
+                //Do something
+            }
+        });
+    });
+</script>   
